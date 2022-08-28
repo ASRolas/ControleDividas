@@ -40,9 +40,9 @@ public class DividasController {
     }
     
     public static void registar(Divida divida){
+        try{
         List<Divida> dividas = listar();
         dividas.add(divida);
-        try{
             FileOutputStream fileOutputStream = 
                     new FileOutputStream("dividas.dat");
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
@@ -59,9 +59,18 @@ public class DividasController {
             e.printStackTrace( );
         }
     }
+
+    public static void pagar(String id) {
+        for (Divida d : listar()) {
+            if (d.getId().equals(id)) {
+                d.setStatus(Divida.Status.PAGA);
+//                d.setDataPagamento(Date.from(Instant.now()));
+            }
+        }
+    }
     
-       public static void main(String[] args) {
-           registar(new Divida("lena", "der", Date.from(Instant.now()), 13.00, 20.00));
+    public static void main(String[] args) {
+           registar(new Divida("elena", "mercia", "", 1300.00, 2000.00));
            System.out.println(listar());
 //        System.out.println(contarUsuarios());
     }

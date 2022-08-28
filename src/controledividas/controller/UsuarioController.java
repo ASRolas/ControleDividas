@@ -77,7 +77,7 @@ public class UsuarioController {
         }
     }
     
-    public static boolean autenticar(Usuario u) {
+    public static boolean autentica(Usuario u) {
         List<Usuario> usuarios = listarUsuarios();
         boolean autentica = usuarios.stream().anyMatch(p -> (p.getEmail().equals(u.getEmail()) && p.getSenha().equals(u.getSenha())));
         return autentica;

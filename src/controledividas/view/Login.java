@@ -145,7 +145,7 @@ public class Login extends javax.swing.JFrame {
     private void btAutenticarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAutenticarActionPerformed
         Usuario u = new Usuario(tfEmail.getText(), String.valueOf(jPasswordField.getPassword()));
 //        System.out.println(UsuarioController.autenticar(u));
-        if (UsuarioController.autenticar(u)) {
+        if (UsuarioController.autentica(u)) {
             new ControleDividas().setVisible(true);
             dispose();
         }

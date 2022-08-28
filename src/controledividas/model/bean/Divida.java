@@ -17,28 +17,66 @@ public class Divida implements Serializable{
     private String id;
     private String nomeDevedor;
     private String apelidoDevedor;
-    private Date data;
+    private String data;
+//    private Date dataPagamento;
     private double valorDivida;
     private double valorAPagar;
+    private Status status;
     
-    enum Status {
+    public enum Status {
         PAGA, NÃO_PAGA
     }
 
-    public Divida(String nomeDevedor, String apelidoDevedor, Date data, double valorDivida, double valorAPagar) {
+    public Divida(String nomeDevedor, String apelidoDevedor, String data, double valorDivida, double valorAPagar) {
         this.id = UUID.randomUUID().toString();
         this.nomeDevedor = nomeDevedor;
         this.apelidoDevedor = apelidoDevedor;
         this.data = data;
         this.valorDivida = valorDivida;
         this.valorAPagar = valorAPagar;
+        this.status = Status.NÃO_PAGA;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getNomeDevedor() {
+        return nomeDevedor;
+    }
+
+    public String getApelidoDevedor() {
+        return apelidoDevedor;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public double getValorDivida() {
+        return valorDivida;
+    }
+
+    public double getValorAPagar() {
+        return valorAPagar;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+//    public void setDataPagamento(Date dataPagamento) {
+//        this.dataPagamento = dataPagamento;
+//    }
+
 
     @Override
     public String toString() {
-        return "\nDivida{" + "id=" + id + ", nomeDevedor=" + nomeDevedor + ", apelidoDevedor=" + apelidoDevedor + ", data=" + data + ", valorDivida=" + valorDivida + ", valorAPagar=" + valorAPagar + '}';
+        return "\nDivida{" + "id=" + id + ", nomeDevedor=" + nomeDevedor + ", apelidoDevedor=" + apelidoDevedor + ", data=" + data + ", valorDivida=" + valorDivida + ", valorAPagar=" + valorAPagar + ", status=" + status + '}';
     }
-
-    
 
 }

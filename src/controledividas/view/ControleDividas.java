@@ -26,6 +26,8 @@ public class ControleDividas extends javax.swing.JFrame {
      */
     public ControleDividas() {
         initComponents();
+        preencherTabela();
+        tfData.setText(Date.from(Instant.now()).toString());
     }
 
     /**
@@ -47,11 +49,11 @@ public class ControleDividas extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         tfApelido = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        ftfData = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
         tfValorDivida = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         tfValorDividaAPagar = new javax.swing.JTextField();
+        tfData = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         btnRegistar2 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
@@ -126,17 +128,6 @@ public class ControleDividas extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Data:");
 
-        try {
-            ftfData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        ftfData.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ftfDataActionPerformed(evt);
-            }
-        });
-
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -161,35 +152,38 @@ public class ControleDividas extends javax.swing.JFrame {
             }
         });
 
+        tfData.setEditable(false);
+        tfData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfDataActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfNome)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5)
-                            .addComponent(tfValorDivida, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfValorDivida)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ftfData, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tfApelido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfValorDividaAPagar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfApelido, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfValorDividaAPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,7 +194,7 @@ public class ControleDividas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ftfData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -318,6 +312,7 @@ public class ControleDividas extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -328,14 +323,14 @@ public class ControleDividas extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -355,11 +350,18 @@ public class ControleDividas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistarActionPerformed
+        tfData.setText(Date.from(Instant.now()).toString());
+
+        Divida d = new Divida(tfNome.getText(), tfApelido.getText(), Date.from(Instant.now()).toString(), Double.parseDouble(tfValorDivida.getText()), Double.parseDouble(tfValorDividaAPagar.getText()));
+        DividasController.registar(d);
+        
         DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
-        Object[] objects = {1, tfNome.getText()+" "+tfApelido.getText(), ftfData.getText(), tfValorDivida.getText(), tfValorDividaAPagar.getText(), "Nao paga"};
+        Object[] objects = {d.getId(), d.getNomeDevedor()+" "+d.getApelidoDevedor(),d.getData(), d.getValorDivida(), d.getValorAPagar(), d.getStatus()};
         defaultTableModel.addRow(objects);
         
-        DividasController.registar(new Divida(tfNome.getText(), tfApelido.getText(), Date.from(Instant.now()), Double.parseDouble(tfValorDivida.getText()), Double.parseDouble(tfValorDividaAPagar.getText())));
+//        Object[] objects = {1, tfNome.getText()+" "+tfApelido.getText(), ftfData.getText(), tfValorDivida.getText(), tfValorDividaAPagar.getText(), "Nao paga"};
+        
+        
     }//GEN-LAST:event_btnRegistarActionPerformed
 
     private void tfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeActionPerformed
@@ -377,7 +379,7 @@ public class ControleDividas extends javax.swing.JFrame {
     private void btnRegistar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistar1ActionPerformed
         tfNome.setText("");
         tfApelido.setText("");
-        ftfData.setText("");
+//        tfData.setText("");
         tfValorDivida.setText("");
         tfValorDividaAPagar.setText("");
     }//GEN-LAST:event_btnRegistar1ActionPerformed
@@ -401,12 +403,14 @@ public class ControleDividas extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         switch(jComboBox1.getSelectedIndex()){
             case 1:
-            if (jTable1.getSelectedRow() != -1) {
-                DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
-                defaultTableModel.removeRow(jTable1.getSelectedRow());
-            }else{
-                JOptionPane.showMessageDialog(null, "Selecione uma divida depois Pagamento -> Completo!");
-            }
+                if (jTable1.getSelectedRow() != -1) {
+//                    DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
+//                    defaultTableModel.removeRow(jTable1.getSelectedRow());
+                    
+                    DividasController.pagar(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+                }else{
+                    JOptionPane.showMessageDialog(null, "Selecione uma divida depois Pagamento -> Completo!");
+                }
             break;
             case 2:
             break;
@@ -419,16 +423,25 @@ public class ControleDividas extends javax.swing.JFrame {
             String nome = jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString();
             tfNome.setText(nome.split(" ")[0]);
             tfApelido.setText(nome.split(" ")[1]);
-            ftfData.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
+            tfData.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
             tfValorDivida.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
             tfValorDividaAPagar.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void ftfDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfDataActionPerformed
+    private void tfDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDataActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ftfDataActionPerformed
+    }//GEN-LAST:event_tfDataActionPerformed
 
+    private void preencherTabela(){
+        DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
+        for (Divida d : DividasController.listar()) {
+            Object[] objects = {d.getId(), d.getNomeDevedor()+" "+d.getApelidoDevedor(),d.getData(), d.getValorDivida(), d.getValorAPagar(), d.getStatus()};
+            defaultTableModel.addRow(objects);
+        }
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -470,7 +483,6 @@ public class ControleDividas extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistar1;
     private javax.swing.JButton btnRegistar2;
     private javax.swing.JButton btnRegistar4;
-    private javax.swing.JFormattedTextField ftfData;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -485,6 +497,7 @@ public class ControleDividas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField tfApelido;
+    private javax.swing.JTextField tfData;
     private javax.swing.JTextField tfNome;
     private javax.swing.JTextField tfNome1;
     private javax.swing.JTextField tfValorDivida;
